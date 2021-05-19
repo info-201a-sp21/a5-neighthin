@@ -1,7 +1,7 @@
 ---
-title: "index.Rmd"
+title: "A-5 Data Report"
 author: "Nathan"
-date: "5/14/2021"
+date: "5/18/2021"
 output: html_document
 ---
 
@@ -10,7 +10,7 @@ knitr::opts_chunk$set(echo = TRUE, warning = FALSE)
 source("analysis.R")
 ```
 
-# A-5 Data Report
+
 This is a data report regarding shootings that occurred across the United
 States in 2018.
 
@@ -67,7 +67,7 @@ organized by months in the x-axis, and the y-axis is the number of shootings
 that happened in that month across the U.S.. I chose to use this visual
 encoding because bar plots are best used to represent ordinal data, which is
 what this data is.
-```{r plot, echo = FALSE}
+```{r plot, echo = FALSE, fig.width = 12}
 library(ggplot2)
 plot_of_choice
 ```
