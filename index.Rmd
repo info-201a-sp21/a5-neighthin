@@ -1,0 +1,78 @@
+---
+title: "index.Rmd"
+author: "Nathan"
+date: "5/14/2021"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, warning = FALSE)
+source("analysis.R")
+```
+
+# A-5 Data Report
+This is a data report regarding shootings that occurred across the United
+States in 2018.
+
+## Summary Information
+This summary information is analyzation of 2018 USA shooting that provide
+relevant information calculated from the data set. There were a total of
+`r num_shootings` shootings that occurred in the USA in 2018. In these
+shootings, there were a tragic amount of `r total_lives_lost` total lives lost
+in the year, with `r highest_deaths_in_day` deaths being the most to happen in
+one day. `r highest_injuries_in_day` injuries was the highest amount of
+injuries to occur in one day. The city which had the most impactful shooting
+(most deaths to happen) was `r impacted_city`.
+
+## Summary Table
+The table below is an aggregate summary of information from the 2018 shootings
+data. The table shows the top 10 states that had the most 2018 casualties in
+descending order, while also providing the total amount of injured people in
+that state (not in a particular order).
+```{r table, echo = FALSE}
+library(knitr)
+kable(state_killed_data, col.names = c("State", "Total Casualties",
+                                       "Total Injuries"), align = "c")
+```
+
+## Description of a Particular Incident
+On `r date_of_incident`, one of the most deadly and tragic shootings occurred.
+A teen gunman used an AR-15 style semi-automatic rifle to open fire on his
+former high school located in `r location_of_incident`. The gunman, Nikolas
+Cruz was found and arrested nearby in Coral Springs after murdering
+`r number_killed` people, and injuring `r number_injured`. He impacted a total
+of `r number_impacted` people with his weapon. Although Nikolas had no
+accomplices, he still caused tragic damage.
+[Link to article](https://www.nbcnews.com/news/us-news/police-respond-shooting-parkland-florida-high-school-n848101)
+
+## Interactive Map
+Below is an interactive map that is a data visualization to show the location
+of each shooting that occurred in 2018. The sizes of the markers indicate
+the impact of each shooting, the higher deaths/injuries mean the bigger
+the markers. This lets us easily compare which locations shooting were more
+or less severe.
+```{r map, echo = FALSE}
+library(leaflet)
+interactive_map
+```
+One insight revealed by this map is that we can see that the east side of the
+U.S. has far more shooting occurrences than the west cost. Another insight is
+that we can see which areas has more impacted people based on how big the
+markers are
+
+## Plot of Choice
+With the bar chart I've created below, I can answer the question, "Which month
+in 2018 had the highest number of occurred shootings?" The bar chart is
+organized by months in the x-axis, and the y-axis is the number of shootings
+that happened in that month across the U.S.. I chose to use this visual
+encoding because bar plots are best used to represent ordinal data, which is
+what this data is.
+```{r plot, echo = FALSE}
+library(ggplot2)
+plot_of_choice
+```
+
+One insight gained from this chart is we can easily see which months had higher 
+occurrences of shootings. Another insight gained is that it seems most
+shootings tend to happen in the middle of the year around summer time, as June,
+July, and August are the top 3 months for amount of shootings.
